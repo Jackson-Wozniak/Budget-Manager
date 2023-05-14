@@ -1,5 +1,7 @@
 package jjw.api.manager.service;
 
+import jjw.api.manager.entity.User;
+import jjw.api.manager.exception.UserCreationException;
 import jjw.api.manager.exception.UserNotFoundException;
 import jjw.api.manager.repository.UserRepository;
 import lombok.AllArgsConstructor;
@@ -16,9 +18,27 @@ public class UserService implements UserDetailsService {
     @Autowired
     private final UserRepository userRepository;
 
+    public User findUserByName(String username){
+        return userRepository.findById(username).orElseThrow(
+                () -> new UserNotFoundException("No user exists with name " + username));
+    }
+
+    public User saveNewUser(User user){
+        if(userExists(user.getUsername())) throw new UserCreationException("That username is taken");
+        return userRepository.save(user);
+    }
+
+    public User updateUser(User user){
+        return userRepository.save(user);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findById(username).orElseThrow(
                 () -> new UserNotFoundException("No user exists with name " + username));
+    }
+
+    public boolean userExists(String username){
+        return this.userRepository.findById(username).isPresent();
     }
 }

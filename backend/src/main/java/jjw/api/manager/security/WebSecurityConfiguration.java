@@ -20,8 +20,6 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfiguration {
 
     @Autowired
-    private final BCryptPasswordEncoder passwordEncoder;
-    @Autowired
     private final UserService userService;
 
     @Bean
@@ -30,10 +28,7 @@ public class WebSecurityConfiguration {
                 .cors().disable()
                 .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/api/v*/**")
-                .permitAll()
-                .anyRequest().authenticated()
-                .and().formLogin();
+                .anyRequest().permitAll();
 
         return http.build();
     }
@@ -50,8 +45,13 @@ public class WebSecurityConfiguration {
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(passwordEncoder);
+        provider.setPasswordEncoder(passwordEncoder());
         provider.setUserDetailsService(userService);
         return provider;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }
