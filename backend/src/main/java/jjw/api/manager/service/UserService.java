@@ -24,8 +24,13 @@ public class UserService implements UserDetailsService {
     }
 
     public User saveNewUser(User user){
-        if(userExists(user.getUsername())) throw new UserCreationException("That username is taken");
+        if(userExists(user.getUsername()) || user.getPassword() == null) throw new UserCreationException("That username is taken");
         return userRepository.save(user);
+    }
+
+    public User findDefaultUser() throws Exception{
+        return userRepository.findById("default").orElseThrow(
+                () -> new Exception("The default user does not exist, application must restart"));
     }
 
     public User updateUser(User user){

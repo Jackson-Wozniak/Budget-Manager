@@ -2,6 +2,7 @@ package jjw.api.manager.service;
 
 import jakarta.transaction.Transactional;
 import jjw.api.manager.entity.MonthlyBudget;
+import jjw.api.manager.entity.User;
 import jjw.api.manager.entity.id.MonthlyBudgetId;
 import jjw.api.manager.exception.CreationException;
 import jjw.api.manager.repository.MonthlyBudgetRepository;
@@ -30,7 +31,14 @@ public class MonthlyBudgetService {
     }
 
     public MonthlyBudget findBudgetById(MonthlyBudgetId id){
-        return monthlyBudgetRepository.findById(id).orElseThrow(() -> new RuntimeException(""));
+        return monthlyBudgetRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("User has not created budget for this month"));
+    }
+
+    public void updateBudgetGoal(MonthlyBudget budget, double updatedGoal){
+        budget = findBudgetById(budget.getId());
+        budget.setSpendingGoal(updatedGoal);
+        updateBudget(budget);
     }
 
     @Transactional

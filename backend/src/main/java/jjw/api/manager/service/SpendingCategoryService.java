@@ -1,5 +1,6 @@
 package jjw.api.manager.service;
 
+import jjw.api.manager.entity.MonthlyBudget;
 import jjw.api.manager.entity.SpendingCategory;
 import jjw.api.manager.entity.id.SpendingCategoryId;
 import jjw.api.manager.exception.CreationException;
@@ -15,7 +16,8 @@ public class SpendingCategoryService {
     @Autowired
     private final SpendingCategoryRepository spendingCategoryRepository;
 
-    public SpendingCategory saveNewSpendingCategory(SpendingCategory spendingCat){
+    public SpendingCategory createSpendingCategory(MonthlyBudget monthlyBudget, double goal, String name){
+        SpendingCategory spendingCat = new SpendingCategory(name, monthlyBudget, goal);
         if(spendingCategoryRepository.findById(spendingCat.getId()).isPresent()){
             throw new CreationException("This category already exists for this month");
         }
