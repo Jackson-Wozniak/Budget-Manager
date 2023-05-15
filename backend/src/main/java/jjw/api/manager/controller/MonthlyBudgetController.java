@@ -40,7 +40,7 @@ public class MonthlyBudgetController {
         try{
             User user = userService.findDefaultUser();
             MonthlyBudget budget = budgetService.saveNewBudget(request.createBudget(user));
-            return ResponseEntity.ok(new MonthlyBudgetDTO(budget));
+            return ResponseEntity.ok("Budget Created");
         }catch(Exception ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
         }

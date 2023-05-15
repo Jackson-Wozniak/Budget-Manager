@@ -1,5 +1,6 @@
 package jjw.api.manager.controller;
 
+import jjw.api.manager.dto.SpendingCategoryDTO;
 import jjw.api.manager.entity.MonthlyBudget;
 import jjw.api.manager.entity.SpendingCategory;
 import jjw.api.manager.entity.User;
@@ -27,11 +28,12 @@ public class SpendingCategoryController {
 
     @GetMapping
     public ResponseEntity<?> getSpendingCategory(@RequestParam("name") String name, @RequestParam("month") String month) throws Exception {
+        month = month.replace("_", "/");
         try{
             User user = userService.findDefaultUser();
             MonthlyBudget monthlyBudget = monthlyBudgetService.findBudgetById(new MonthlyBudgetId(user, month));
             SpendingCategory category = spendingCategoryService.findCategoryById(new SpendingCategoryId(monthlyBudget.getId(), name));
-            return ResponseEntity.ok(category);
+            return ResponseEntity.ok(new SpendingCategoryDTO(category));
         }catch (Exception ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
@@ -39,11 +41,12 @@ public class SpendingCategoryController {
 
     @PostMapping
     public ResponseEntity<?> createSpendingCategory(@RequestParam("name") String name, @RequestParam("month") String month, @RequestParam("goal") String goal) throws Exception {
+        month = month.replace("_", "/");
         try{
             User user = userService.findDefaultUser();
             MonthlyBudget monthlyBudget = monthlyBudgetService.findBudgetById(new MonthlyBudgetId(user, month));
             SpendingCategory category = spendingCategoryService.createSpendingCategory(monthlyBudget, Double.parseDouble(goal), name);
-            return ResponseEntity.ok(category);
+            return ResponseEntity.ok("Category Created");
         }catch (Exception ex){
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
