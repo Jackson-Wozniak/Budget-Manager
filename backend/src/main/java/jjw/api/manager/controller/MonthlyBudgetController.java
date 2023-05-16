@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/api/v1/monthly_budget")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class MonthlyBudgetController {
 
     @Autowired
