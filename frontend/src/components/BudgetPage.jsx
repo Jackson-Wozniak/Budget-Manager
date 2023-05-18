@@ -2,6 +2,7 @@ import { useState } from "react";
 import '../styles/BudgetPage.css';
 import { getMonthlyBudget } from "../utils/MonthlyBudgetApi";
 import { useNavigate } from 'react-router-dom';
+import SpendingCategory from "./SpendingCategory";
 
 function BudgetPage() {
     const [month, setMonth] = useState(null);
@@ -10,13 +11,15 @@ function BudgetPage() {
     const navigate = useNavigate();
 
     function setNewMonth(month){
-        setMonth(month);
-        
         getMonthlyBudget(month).then((data) => {
             if(data === "User has not created budget for this month"){
                 navigate("create-budget");
+                return;
             }
             console.log(data);
+            console.log(data.spendingCategories);
+            setMonthlyBudget(data);
+            setMonth(month);
         });
     }
 
@@ -38,6 +41,11 @@ function BudgetPage() {
             <progress max={monthlyBudget.monthlyGoal} value={monthlyBudget.moneySpent} id="monthly-budget-progress"/>
 
             <h5>$ {monthlyBudget.moneySpent} spent | $ {monthlyBudget.monthlyGoal} goal</h5>
+
+            <h1>Spending Categories</h1>
+            {monthlyBudget.spendingCategories.map((spendingCategory, index) => {
+                return <SpendingCategory key={index} category={spendingCategory} />
+            })}
         </div>
     );
 }

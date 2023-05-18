@@ -12,12 +12,14 @@ import java.util.stream.Collectors;
 public class MonthlyBudgetDTO {
 
     private String month;
-    private double goal;
+    private double monthlyGoal;
+    private double moneySpent;
     private List<SpendingCategoryDTO> spendingCategories;
 
     public MonthlyBudgetDTO(MonthlyBudget monthlyBudget){
         this.month = monthlyBudget.getId().getMonth();
-        this.goal = monthlyBudget.getSpendingGoal();
+        this.monthlyGoal = monthlyBudget.getSpendingGoal();
+        this.moneySpent = 0.0;
         this.spendingCategories = monthlyBudget.getSpendingCategories().stream()
                 .map(SpendingCategoryDTO::new)
                 .collect(Collectors.toList());
