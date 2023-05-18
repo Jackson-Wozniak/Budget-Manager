@@ -25,3 +25,19 @@ export async function createMonthlyBudget(month, spendingGoal){
 
     return true;
 }
+
+export async function createSpendingCategory(nameOfCategory, month, spendingGoal){
+    const requestParams = "?month=" + month + "&goal=" + spendingGoal + "&name=" + nameOfCategory
+    const response = await fetch("http://localhost:8080/api/v1/categories" + requestParams, {
+        method : 'POST',
+        headers : {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    if(response.status !== 200){
+        return await response.text();
+    }
+
+    return true;
+}

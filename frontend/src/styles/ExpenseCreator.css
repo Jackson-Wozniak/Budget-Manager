@@ -1,0 +1,84 @@
+.expense-creator-popup{
+    width : 100vw;
+    height : 100vh;
+    background-color: black;
+    opacity: .8;
+    top : 0;
+    left : 0;
+    position : absolute
+}
+
+.expense-creator-window{
+    top: 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    opacity: 1.0;
+    position : absolute;
+
+    width : 50vw;
+    min-height: 50vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#expense-value{
+    margin : 5px;
+    width : 40%;
+    height : 30px;
+    border : 1px solid;
+    border-radius: 5px;
+}
+
+#expense-date{
+    margin : 5px;
+    width : 25%;
+    height : 30px;
+    border : 1px solid;
+    border-radius: 5px;
+}
+
+#category-choice{
+    margin : 5px;
+    min-width : 30%;
+    height : 30px;
+    border : 1px solid;
+    border-radius: 5px;
+}
+
+.exit-button{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    top : 0px;
+    right : 0px;
+    margin : 5px;
+    border-radius: 5px;
+
+    border : lightslategray 1px solid;
+    background-color: white;
+    color : black;
+
+    height: 20px;
+    width : 30px;
+    font-size: 1.1rem;
+}
+
+.exit-button:hover{
+    border : crimson 1px solid;
+    background-color: lightcoral;
+    color : white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
