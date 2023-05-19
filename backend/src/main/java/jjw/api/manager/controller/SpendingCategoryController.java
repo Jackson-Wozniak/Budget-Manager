@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/api/v1/categories")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class SpendingCategoryController {
 
     @Autowired
@@ -41,7 +42,6 @@ public class SpendingCategoryController {
 
     @PostMapping
     public ResponseEntity<?> createSpendingCategory(@RequestParam("name") String name, @RequestParam("month") String month, @RequestParam("goal") String goal) throws Exception {
-        month = month.replace("_", "/");
         try{
             User user = userService.findDefaultUser();
             MonthlyBudget monthlyBudget = monthlyBudgetService.findBudgetById(new MonthlyBudgetId(user, month));

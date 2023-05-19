@@ -6,6 +6,7 @@ import SpendingCategory from "./SpendingCategory";
 import ExpenseCreator from "./ExpenseCreator";
 import IncomeCreator from "./IncomeCreator";
 import SpendingCategoryCreator from "./SpendingCategoryCreator";
+import { createSpendingCategory } from "../utils/MonthlyBudgetApi";
 
 function BudgetPage() {
     const [month, setMonth] = useState(null);
@@ -27,6 +28,15 @@ function BudgetPage() {
         });
     }
 
+    function createNewCategory(e, name, goal){
+        e.preventDefault();
+        if(name === "" || goal === 0 || name === null || goal === null) return
+        createSpendingCategory(name, month, goal).then(() => {
+            setNewMonth(month);
+            setCategoryCreatorVisible(false);
+        });
+    }
+
 
     if(month === null){
         return(
@@ -43,7 +53,7 @@ function BudgetPage() {
     }else if(incomeCreatorVisible){
         creatorWindow = <IncomeCreator setVisible={setIncomeCreatorVisible}/>
     }else if(categoryCreatorVisible){
-        creatorWindow = <SpendingCategoryCreator setVisible={setCategoryCreatorVisible}/>
+        creatorWindow = <SpendingCategoryCreator setVisible={setCategoryCreatorVisible} createNewCategory={createNewCategory}/>
     }
 
     return ( 
