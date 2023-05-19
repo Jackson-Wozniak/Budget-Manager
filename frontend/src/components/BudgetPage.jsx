@@ -1,6 +1,6 @@
 import { useState } from "react";
 import '../styles/BudgetPage.css';
-import { getMonthlyBudget } from "../utils/MonthlyBudgetApi";
+import { createExpense, getMonthlyBudget } from "../utils/MonthlyBudgetApi";
 import { useNavigate } from 'react-router-dom';
 import SpendingCategory from "./SpendingCategory";
 import ExpenseCreator from "./ExpenseCreator";
@@ -37,6 +37,14 @@ function BudgetPage() {
         });
     }
 
+    function createNewExpense(desc, value, paymentMethod, categoryName){
+        createExpense(desc, value, paymentMethod, categoryName, month).then((data) => {
+            console.log(data);
+            setNewMonth(month);
+            setExpenseCreatorVisible(false);
+        });
+    }
+
 
     if(month === null){
         return(
@@ -49,7 +57,7 @@ function BudgetPage() {
 
     let creatorWindow;
     if(expenseCreatorVisible){
-        creatorWindow = <ExpenseCreator spendingCategories={monthlyBudget.spendingCategories} setVisible={setExpenseCreatorVisible}/>;
+        creatorWindow = <ExpenseCreator spendingCategories={monthlyBudget.spendingCategories} createNewExpense={createNewExpense} setVisible={setExpenseCreatorVisible}/>;
     }else if(incomeCreatorVisible){
         creatorWindow = <IncomeCreator setVisible={setIncomeCreatorVisible}/>
     }else if(categoryCreatorVisible){

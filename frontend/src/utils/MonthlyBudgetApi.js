@@ -41,3 +41,24 @@ export async function createSpendingCategory(nameOfCategory, month, spendingGoal
 
     return true;
 }
+
+export async function createExpense(description, value, paymentMethod, categoryName, month){
+    const response = await fetch("http://localhost:8080/api/v1/expense", {
+        method : 'POST',
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(
+            {"description" : description, 
+            "value" : value, 
+            "paymentMethod" : paymentMethod, 
+            "categoryName": categoryName, 
+            "month": month})
+    });
+
+    if(response.status !== 200){
+        return await response.text();
+    }
+
+    return true;
+}

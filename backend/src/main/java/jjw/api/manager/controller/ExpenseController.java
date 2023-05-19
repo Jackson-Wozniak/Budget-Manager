@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(value = "/api/v1/expense")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ExpenseController {
 
     @Autowired
