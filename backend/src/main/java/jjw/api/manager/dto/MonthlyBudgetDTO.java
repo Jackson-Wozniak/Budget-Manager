@@ -19,9 +19,14 @@ public class MonthlyBudgetDTO {
     public MonthlyBudgetDTO(MonthlyBudget monthlyBudget){
         this.month = monthlyBudget.getId().getMonth();
         this.monthlyGoal = monthlyBudget.getSpendingGoal();
-        this.moneySpent = 0.0;
         this.spendingCategories = monthlyBudget.getSpendingCategories().stream()
                 .map(SpendingCategoryDTO::new)
                 .collect(Collectors.toList());
+        this.moneySpent = calculateMoneySpent();
+    }
+
+    public double calculateMoneySpent(){
+        return this.spendingCategories.stream()
+                .mapToDouble(SpendingCategoryDTO::getValueOfExpenses).sum();
     }
 }

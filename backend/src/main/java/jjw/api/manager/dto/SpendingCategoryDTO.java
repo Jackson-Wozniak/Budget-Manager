@@ -15,6 +15,7 @@ public class SpendingCategoryDTO {
     private String name;
     private double goal;
     private List<ExpenseDTO> expenses;
+    private double sumOfExpenses;
 
     public SpendingCategoryDTO(SpendingCategory spendingCategory){
         this.name = spendingCategory.getId().getName();
@@ -22,5 +23,10 @@ public class SpendingCategoryDTO {
         this.expenses = spendingCategory.getExpenses().stream()
                 .map(ExpenseDTO::new)
                 .collect(Collectors.toList());
+        this.sumOfExpenses = getValueOfExpenses();
+    }
+
+    public double getValueOfExpenses(){
+        return this.expenses.stream().mapToDouble(ExpenseDTO::getValue).sum();
     }
 }
