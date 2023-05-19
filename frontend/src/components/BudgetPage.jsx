@@ -4,11 +4,15 @@ import { getMonthlyBudget } from "../utils/MonthlyBudgetApi";
 import { useNavigate } from 'react-router-dom';
 import SpendingCategory from "./SpendingCategory";
 import ExpenseCreator from "./ExpenseCreator";
+import IncomeCreator from "./IncomeCreator";
+import SpendingCategoryCreator from "./SpendingCategoryCreator";
 
 function BudgetPage() {
     const [month, setMonth] = useState(null);
     const [monthlyBudget, setMonthlyBudget] = useState({});
     const [expenseCreatorVisible, setExpenseCreatorVisible] = useState(false);
+    const [incomeCreatorVisible, setIncomeCreatorVisible] = useState(false);
+    const [categoryCreatorVisible, setCategoryCreatorVisible] = useState(false);
 
     const navigate = useNavigate();
 
@@ -18,8 +22,6 @@ function BudgetPage() {
                 navigate("create-budget");
                 return;
             }
-            console.log(data);
-            console.log(data.spendingCategories);
             setMonthlyBudget(data);
             setMonth(month);
         });
@@ -35,9 +37,13 @@ function BudgetPage() {
         );
     }
 
-    let expenseCreatorWindow;
+    let creatorWindow;
     if(expenseCreatorVisible){
-        expenseCreatorWindow = <ExpenseCreator spendingCategories={monthlyBudget.spendingCategories} setVisible={setExpenseCreatorVisible}/>;
+        creatorWindow = <ExpenseCreator spendingCategories={monthlyBudget.spendingCategories} setVisible={setExpenseCreatorVisible}/>;
+    }else if(incomeCreatorVisible){
+        creatorWindow = <IncomeCreator setVisible={setIncomeCreatorVisible}/>
+    }else if(categoryCreatorVisible){
+        creatorWindow = <SpendingCategoryCreator setVisible={setCategoryCreatorVisible}/>
     }
 
     return ( 
@@ -49,13 +55,13 @@ function BudgetPage() {
 
             <h5>$ {monthlyBudget.moneySpent} spent | $ {monthlyBudget.monthlyGoal} goal</h5>
 
-            {expenseCreatorWindow}
+            {creatorWindow}
 
             <hr />
             <div className="creation-buttons">
                 <button onClick={() => setExpenseCreatorVisible(true)}>Add Expense</button>
-                <button>Add Income</button>
-                <button>Add Spending Category</button>
+                <button onClick={() => setIncomeCreatorVisible(true)}>Add Income</button>
+                <button onClick={() => setCategoryCreatorVisible(true)}>Add Spending Category</button>
             </div>
 
             <hr />
