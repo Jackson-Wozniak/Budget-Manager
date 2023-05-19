@@ -1,4 +1,10 @@
-
+.budget-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 #month-display{
     display: flex;
