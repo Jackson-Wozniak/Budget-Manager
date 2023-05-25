@@ -9,8 +9,7 @@ function SpendingCategory(props) {
 
     let category = props.category;
     let sum = category.goal - category.sumOfExpenses;
-    let formattedSum = formatter.format(sum);
-    let totalToSpend = (category.goal - category.sumOfExpenses >= 0) ?  (formattedSum + " to spend") : (formattedSum + " past goal");
+    let totalToSpend = (category.goal - category.sumOfExpenses >= 0) ?  (formatter.format(sum) + " to spend") : (formatter.format(sum * -1) + " past goal");
 
     return (  
         <div className="category-container">

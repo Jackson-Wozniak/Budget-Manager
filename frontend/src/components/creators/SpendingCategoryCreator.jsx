@@ -1,4 +1,4 @@
-import '../styles/SpendingCategoryCreator.css';
+import '../../styles/creators/SpendingCategoryCreator.css';
 import { useState } from 'react';
 
 function SpendingCategoryCreator(props) {

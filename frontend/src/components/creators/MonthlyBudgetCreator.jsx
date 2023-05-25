@@ -1,4 +1,4 @@
-import { createMonthlyBudget } from "../utils/MonthlyBudgetApi";
+import { createMonthlyBudget } from "../../utils/MonthlyBudgetApi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

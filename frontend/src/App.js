@@ -1,7 +1,7 @@
 import BudgetPage from './components/BudgetPage';
 import './styles/App.css';
 import { Route, Routes } from 'react-router-dom';
-import MonthlyBudgetCreator from './components/MonthlyBudgetCreator';
+import MonthlyBudgetCreator from './components/creators/MonthlyBudgetCreator';
 
 function App() {
   return (

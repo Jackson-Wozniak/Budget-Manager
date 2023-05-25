@@ -1,4 +1,4 @@
-import '../styles/IncomeCreator.css';
+import '../../styles/creators/IncomeCreator.css';
 
 function IncomeCreator(props) {
 

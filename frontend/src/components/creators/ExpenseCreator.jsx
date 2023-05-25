@@ -1,4 +1,4 @@
-import '../styles/ExpenseCreator.css';
+import '../../styles/creators/ExpenseCreator.css';
 import { useState } from 'react';
 
 function ExpenseCreator(props) {
