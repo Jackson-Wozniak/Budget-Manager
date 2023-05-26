@@ -1,4 +1,5 @@
 import '../../styles/categories/CategoryWindow.css';
+import SpendingCategory from "../SpendingCategory";
 
 /*
 CONTAINS:
@@ -6,9 +7,15 @@ CONTAINS:
     - Each category contains the name, $ left to spend, and progress bar for tracking
 */
 function CategoryWindow(props) {
-    return ( 
-        <div>
 
+    let budget = props.budget;
+
+    return ( 
+        <div className="category-container">
+            <h1>Spending Categories</h1>
+            {budget.spendingCategories.map((spendingCategory, index) => {
+                return <SpendingCategory key={index} category={spendingCategory} />
+            })}
         </div>
      );
 }

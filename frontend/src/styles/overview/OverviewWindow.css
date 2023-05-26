@@ -1,0 +1,21 @@
+.overview-container{
+    min-height : 100vh;
+    height : 100vh;
+    min-width : 35vw;
+    max-width: 35vw;
+    margin : 0;
+    padding : 0;
+    border : none;
+}
+
+#month-display{
+    font-family: 'Century Gothic', sans-serif;
+    padding : 5px;
+    font-weight: bold;
+    font-size : 1.2rem;
+    align-items: center;
+    text-align: center;
+    width : 150px;
+    border: none;
+    border-radius: 5px;
+}

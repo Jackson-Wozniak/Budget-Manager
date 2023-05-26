@@ -1,0 +1,28 @@
+.category-container{
+    min-height : 100vh;
+    height : 100vh;
+    min-width : 30vw;
+    max-width: 30vw;
+    margin : 0;
+    padding : 0;
+    border : none;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#monthly-budget-progress {
+    border-radius: 7px; 
+    width: 80%;
+    height: 22px;
+    margin-left: -11.5%;
+    box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+  }
+  #monthly-budget-progress::-webkit-progress-bar {
+    background-color: lightgreen;
+    border-radius: 7px;
+  }
+  #monthly-budget-progress::-webkit-progress-value {
+    background-color: green;
+    border-radius: 7px;
+  }

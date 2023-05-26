@@ -1,9 +1,18 @@
 .budget-container{
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow-x: hidden;
+}
+
+.budget-container::-webkit-scrollbar {
+  display: none;
+}
+
+.budget-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .chart-container{
@@ -14,29 +23,4 @@
   text-align: center;
   height : 40vh;
   width : 40vw;
-}
-
-#month-display{
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top : 0px;
-    right : 0px;
-    margin : 5px;
-}
-
-#monthly-budget-progress {
-  border-radius: 7px; 
-  width: 80%;
-  height: 22px;
-  margin-left: -11.5%;
-  box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
-}
-#monthly-budget-progress::-webkit-progress-bar {
-  background-color: lightgreen;
-  border-radius: 7px;
-}
-#monthly-budget-progress::-webkit-progress-value {
-  background-color: green;
-  border-radius: 7px;
 }
