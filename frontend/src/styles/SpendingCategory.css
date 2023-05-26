@@ -1,9 +1,16 @@
 .category-list-container{
     display: flex;
     flex-direction: column;
-    width : 35vw;
+    width : 34vw;
     min-height : 20vh;
-    border: 1px solid black;
+    border: 1px solid lightgray;
+    transition: 500ms;
+    margin : 5px;
+    border-radius: 10px;
+}
+
+.category-list-container:hover{
+  min-height: 21vh;
 }
 
 .category-container-title{
@@ -13,6 +20,19 @@
     text-align: center;
     width : 100%;
     height : 70%;
+}
+
+#category-identifier{
+  width : 65%;
+  text-align: left;
+  padding-left : 40px;
+  font-size: 1.8rem;
+  font-family: 'Century Gothic', sans-serif;
+}
+
+#category-to-spend{
+  font-weight: normal;
+  font-family: 'Century Gothic', sans-serif;
 }
 
 .category-buttons{
@@ -42,7 +62,9 @@
 .progress-bar-container span{
   position : absolute;
   left : 5px;
-  color : white;
+  top : 4px;
+  color : whitesmoke;
+  font-family: 'Century Gothic', sans-serif;
 }
 
 .category-progress-bar {
@@ -64,7 +86,7 @@
 }
 
 .meeting-goal::-webkit-progress-value {
-  background-color: green;
+  background-color: #2E8B57;
 }
 
 .past-goal::-webkit-progress-bar {
@@ -72,7 +94,7 @@
 }
 
 .past-goal::-webkit-progress-value {
-  background-color: crimson;
+  background-color: #9A0000;
 }
 
 .at-goal::-webkit-progress-bar {
@@ -80,5 +102,5 @@
 }
   
 .at-goal::-webkit-progress-value {
-    background-color: rgb(222, 222, 43);
+    background-color: #E47200;
 }
