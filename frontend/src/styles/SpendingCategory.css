@@ -1,17 +1,18 @@
-.category-container{
+.category-list-container{
     display: flex;
-    width : 90vw;
+    flex-direction: column;
+    width : 35vw;
     min-height : 20vh;
+    border: 1px solid black;
 }
 
 .category-container-title{
     display: flex;
-    flex-direction : column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width : 40%;
-    min-height : 100%;
+    width : 100%;
+    height : 70%;
 }
 
 .category-buttons{
@@ -19,20 +20,34 @@
 }
 
 .category-container-info{
-    width : 60%;
-    min-height : 100%;
+    width : 100%;
+    height : 30%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
+
+.progress-bar-container{
+  width : 85%;
+  height : 70%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.progress-bar-container span{
+  position : absolute;
+  left : 5px;
+  color : white;
+}
+
 .category-progress-bar {
   border-radius: 7px; 
-  width: 90%;
-  margin : 5px;
-  height: 25px;
+  width: 100%;
+  height: 100%;
   box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
 }
 

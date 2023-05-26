@@ -1,14 +1,27 @@
 .category-container{
     min-height : 100vh;
     height : 100vh;
-    min-width : 30vw;
-    max-width: 30vw;
+    min-width : 35vw;
+    max-width: 35vw;
     margin : 0;
     padding : 0;
     border : none;
 
     display: flex;
     flex-direction: column;
+    overflow-y : auto;
+}
+
+.category-container::-webkit-scrollbar {
+    background-color:#fff;
+    height:4px;
+    width : 8px;
+}
+.category-container::-webkit-scrollbar-track {
+    background-color:#fff
+}
+.category-container::-webkit-scrollbar-thumb {
+    background-color:#babac0;border-radius:4px
 }
 
 #monthly-budget-progress {
