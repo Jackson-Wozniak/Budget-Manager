@@ -65,9 +65,9 @@ function OverviewWindow(props) {
 
             <hr />
             <div className="creation-buttons">
-                <button onClick={() => setExpenseCreatorVisible(true)}>Add Expense</button>
-                <button onClick={() => setIncomeCreatorVisible(true)}>Add Income</button>
-                <button onClick={() => setCategoryCreatorVisible(true)}>Add Spending Category</button>
+                <button onClick={() => setExpenseCreatorVisible(true)}>+ Expense</button>
+                <button onClick={() => setIncomeCreatorVisible(true)}>+ Income</button>
+                <button onClick={() => setCategoryCreatorVisible(true)}>+ Spending Category</button>
             </div>
         </div>
     );

@@ -20,7 +20,7 @@ function SpendingCategory(props) {
             <div className="category-container-info">
                 <div className="progress-bar-container">
                     <progress max={category.goal} value={category.sumOfExpenses} className={("category-progress-bar ") + ((sum > 0) ? "meeting-goal" : (sum === 0) ? "at-goal" : "past-goal")}/>
-                    <span>${category.sumOfExpenses}  /  ${category.goal}</span>
+                    <span>{formatter.format(category.sumOfExpenses)}  /  {formatter.format(category.goal)}</span>
                 </div>
             </div>
         </div>
