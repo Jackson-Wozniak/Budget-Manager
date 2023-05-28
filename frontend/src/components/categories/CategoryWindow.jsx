@@ -12,7 +12,6 @@ function CategoryWindow(props) {
 
     return ( 
         <div className="category-container">
-            <h1>Spending Categories</h1>
             <p>click category for details</p>
             {budget.spendingCategories.map((spendingCategory, index) => {
                 return <SpendingCategory key={index} category={spendingCategory} />

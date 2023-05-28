@@ -19,9 +19,19 @@ function OverviewWindow(props) {
     let month = props.month;
     let budget = props.budget;
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+
+    let sum = budget.monthlyGoal - budget.moneySpent;
+    let totalToSpend = (sum >= 0) ?  (formatter.format(sum) + " remaining") : (formatter.format(sum * -1) + " overspent");
+
     const [expenseCreatorVisible, setExpenseCreatorVisible] = useState(false);
     const [incomeCreatorVisible, setIncomeCreatorVisible] = useState(false);
     const [categoryCreatorVisible, setCategoryCreatorVisible] = useState(false);
+    
+
 
     function setNewMonth(month){
         props.setNewMonth(month);
@@ -54,20 +64,23 @@ function OverviewWindow(props) {
 
     return ( 
         <div className="overview-container">
-            <input type="month" id="month-display" min="2020-08" defaultValue={month} onChange={(e) => setNewMonth(e.target.value)} />
-
-            <h1>$ {budget.monthlyGoal - budget.moneySpent} to spend</h1>
-            <progress max={budget.monthlyGoal} value={budget.moneySpent} id="monthly-budget-progress"/>
-
-            <h5>$ {budget.moneySpent} spent | $ {budget.monthlyGoal} goal</h5>
-
             {creatorWindow}
+            <div className="overview-date-container">
+                <input type="month" id="month-display" min="2020-08" defaultValue={month} onChange={(e) => setNewMonth(e.target.value)} />
+            </div>
+            <div className="overview-stats-container">
+                <h1 id="total-to-spend">{totalToSpend}</h1>
+                <h5 id="goal-display">out of your {formatter.format(budget.monthlyGoal)} goal</h5>
 
-            <hr />
-            <div className="creation-buttons">
-                <button onClick={() => setExpenseCreatorVisible(true)}>+ Expense</button>
-                <button onClick={() => setIncomeCreatorVisible(true)}>+ Income</button>
-                <button onClick={() => setCategoryCreatorVisible(true)}>+ Spending Category</button>
+                <div className="overview-progress-bar-container">
+                    <progress max={budget.monthlyGoal} value={budget.moneySpent} className={("overview-progress-bar ") + ((sum > 0) ? "meeting-goal" : (sum === 0) ? "at-goal" : "past-goal")}/>
+                    <span>{formatter.format(budget.moneySpent)}  /  {formatter.format(budget.monthlyGoal)}</span>
+                </div>
+            </div>
+            <div className="overview-buttons-container">
+                <button onClick={() => setExpenseCreatorVisible(true)} className="creator-buttons">+ New Expense</button>
+                <button onClick={() => setIncomeCreatorVisible(true)} className="creator-buttons">+ New Income</button>
+                <button onClick={() => setCategoryCreatorVisible(true)} className="creator-buttons">+ New Spending Category</button>
             </div>
         </div>
     );

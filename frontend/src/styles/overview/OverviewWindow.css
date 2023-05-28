@@ -5,13 +5,60 @@
     max-width: 35vw;
     margin : 0;
     padding : 0;
-    border-left : 1px solid black;
-    border-right : 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.overview-date-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height : 10vh;
+    width : 100%;
+    margin : 10px;
+}
+
+.overview-stats-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height : 30vh;
+    width : 98%;
+    border: 1px solid lightgray;
+    margin : 5px;
+    border-radius: 10px;
+}
+
+.overview-buttons-container{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height : 40vh;
+    width : 98%;
+    border: 1px solid lightgray;
+    margin : 5px;
+    border-radius: 10px;
+}
+
+#total-to-spend{
+    margin-bottom : 5px;
+}
+
+#goal-display{
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 
 #month-display{
     font-family: 'Century Gothic', sans-serif;
     padding : 5px;
+    margin-top : 5px;
     font-weight: bold;
     font-size : 1.2rem;
     align-items: center;
@@ -19,4 +66,79 @@
     width : 150px;
     border: none;
     border-radius: 5px;
+    border: 2px solid black;
+}
+
+.creator-buttons{
+    font-family: 'Century Gothic', sans-serif;
+    width : 80%;
+    background-color: white;
+    border : 1px solid lightslategray;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 10px 0px 10px 0px;
+}
+
+/*
+PROGRESS BAR
+*/
+
+.overview-progress-bar-container{
+  height : 30px;
+  width : 95%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.overview-progress-bar-container span{
+  position : absolute;
+  left : 5px;
+  top : 4px;
+  color : whitesmoke;
+  font-family: 'Century Gothic', sans-serif;
+}
+
+.overview-progress-bar {
+  border-radius: 7px; 
+  width: 100%;
+  height: 100%;
+  box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+}
+
+.overview-progress-bar::-webkit-progress-bar {
+  border-radius: 7px;
+}
+.overview-progress-bar::-webkit-progress-value {
+  border-radius: 7px;
+}
+
+.meeting-goal::-webkit-progress-bar {
+  background-color: lightgreen;
+}
+
+.meeting-goal::-webkit-progress-value {
+  background-color: #2E8B57;
+}
+
+.past-goal::-webkit-progress-bar {
+  background-color: lightcoral;
+}
+
+.past-goal::-webkit-progress-value {
+  background-color: #9A0000;
+}
+
+.at-goal::-webkit-progress-bar {
+    background-color: lightsalmon;
+}
+  
+.at-goal::-webkit-progress-value {
+    background-color: #E47200;
 }
