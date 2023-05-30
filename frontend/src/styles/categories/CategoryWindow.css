@@ -11,6 +11,8 @@
     flex-direction: column;
     overflow-y : auto;
     font-family: 'Century Gothic', sans-serif;
+    justify-content: center;
+    align-items: center;
 }
 
 .category-container::-webkit-scrollbar {

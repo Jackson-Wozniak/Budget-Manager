@@ -52,9 +52,10 @@ function DetailsWindow(props) {
     return ( 
         <div className="details-container">
           <div className="income-details">
-            <h5>Income: {formatter.format(budget.incomeGenerated)}</h5>
-            <h5>Spent: {formatter.format(budget.moneySpent)}</h5>
-            <h3>Total: {formatter.format(budget.incomeGenerated - budget.moneySpent)}</h3>
+            <h2>Total Income vs. Expenses</h2>
+            <p>Income: {formatter.format(budget.incomeGenerated)}</p>
+            <p>Spent: {formatter.format(budget.moneySpent)}</p>
+            <h4>Total: {formatter.format(budget.incomeGenerated - budget.moneySpent)}</h4>
           </div>
           {chartWindow}
         </div>

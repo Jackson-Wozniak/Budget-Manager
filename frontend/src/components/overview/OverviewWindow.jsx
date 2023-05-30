@@ -69,8 +69,8 @@ function OverviewWindow(props) {
                 <input type="month" id="month-display" min="2020-08" defaultValue={month} onChange={(e) => setNewMonth(e.target.value)} />
             </div>
             <div className="overview-stats-container">
-                <h1 id="total-to-spend">{totalToSpend}</h1>
-                <h5 id="goal-display">out of your {formatter.format(budget.monthlyGoal)} goal</h5>
+                <h2 id="total-to-spend">{totalToSpend}</h2>
+                <h6 id="goal-display">out of your {formatter.format(budget.monthlyGoal)} goal</h6>
 
                 <div className="overview-progress-bar-container">
                     <progress max={budget.monthlyGoal} value={budget.moneySpent} className={("overview-progress-bar ") + ((sum > 0) ? "meeting" : (sum === 0) ? "at" : "past")}/>

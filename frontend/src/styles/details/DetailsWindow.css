@@ -1,8 +1,8 @@
 .details-container{
     min-height : 100vh;
     height : 100vh;
-    min-width : 30vw;
-    max-width: 30vw;
+    min-width : 35vw;
+    max-width: 35vw;
     margin : 0;
     padding : 0;
     border : none;
@@ -14,7 +14,7 @@
 }
 
 .income-details{
-    width : 97%;
+    width : 90%;
     border: 1px solid lightgray;
     margin : 10px;
     border-radius: 10px;
@@ -27,7 +27,7 @@
 }
 
 .chart-container{
-    width : 97%;
+    width : 90%;
     border: 1px solid lightgray;
     margin : 5px;
     border-radius: 10px;

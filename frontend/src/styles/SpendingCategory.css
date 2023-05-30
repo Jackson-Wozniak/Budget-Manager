@@ -1,7 +1,7 @@
 .category-list-container{
     display: flex;
     flex-direction: column;
-    width : 34vw;
+    width : 90%;
     min-height : 20vh;
     border: 1px solid lightgray;
     transition: 500ms;
