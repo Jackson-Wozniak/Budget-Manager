@@ -39,7 +39,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    min-height : 40vh;
+    min-height : 50vh;
     width : 98%;
     border: 1px solid lightgray;
     margin : 5px;
@@ -119,26 +119,26 @@ PROGRESS BAR
   border-radius: 7px;
 }
 
-.meeting-goal::-webkit-progress-bar {
+.meeting::-webkit-progress-bar {
   background-color: lightgreen;
 }
 
-.meeting-goal::-webkit-progress-value {
+.meeting::-webkit-progress-value {
   background-color: #2E8B57;
 }
 
-.past-goal::-webkit-progress-bar {
+.past::-webkit-progress-bar {
   background-color: lightcoral;
 }
 
-.past-goal::-webkit-progress-value {
+.past::-webkit-progress-value {
   background-color: #9A0000;
 }
 
-.at-goal::-webkit-progress-bar {
+.at::-webkit-progress-bar {
     background-color: lightsalmon;
 }
   
-.at-goal::-webkit-progress-value {
+.at::-webkit-progress-value {
     background-color: #E47200;
 }

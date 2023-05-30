@@ -73,7 +73,7 @@ function OverviewWindow(props) {
                 <h5 id="goal-display">out of your {formatter.format(budget.monthlyGoal)} goal</h5>
 
                 <div className="overview-progress-bar-container">
-                    <progress max={budget.monthlyGoal} value={budget.moneySpent} className={("overview-progress-bar ") + ((sum > 0) ? "meeting-goal" : (sum === 0) ? "at-goal" : "past-goal")}/>
+                    <progress max={budget.monthlyGoal} value={budget.moneySpent} className={("overview-progress-bar ") + ((sum > 0) ? "meeting" : (sum === 0) ? "at" : "past")}/>
                     <span>{formatter.format(budget.moneySpent)}  /  {formatter.format(budget.monthlyGoal)}</span>
                 </div>
             </div>

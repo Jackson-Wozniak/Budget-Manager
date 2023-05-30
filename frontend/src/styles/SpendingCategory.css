@@ -93,7 +93,7 @@
 }
 
 .past-goal::-webkit-progress-value {
-  background-color: #9A0000;
+  background-color: rgb(183, 18, 51);
 }
 
 .at-goal::-webkit-progress-bar {
@@ -101,5 +101,5 @@
 }
   
 .at-goal::-webkit-progress-value {
-    background-color: #E47200;
+    background-color: #e17c16;
 }

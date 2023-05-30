@@ -12,6 +12,11 @@ function DetailsWindow(props) {
 
     let budget = props.budget;
 
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+  });
+
     ChartJS.register(ArcElement, Tooltip, Legend);
     const data = {
         labels: budget.spendingCategories.map(category => category.name),
@@ -46,7 +51,12 @@ function DetailsWindow(props) {
     }
     return ( 
         <div className="details-container">
-            {chartWindow}
+          <div className="income-details">
+            <h5>Income: {formatter.format(budget.incomeGenerated)}</h5>
+            <h5>Spent: {formatter.format(budget.moneySpent)}</h5>
+            <h3>Total: {formatter.format(budget.incomeGenerated - budget.moneySpent)}</h3>
+          </div>
+          {chartWindow}
         </div>
      );
 }

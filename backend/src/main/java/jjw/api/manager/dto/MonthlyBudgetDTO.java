@@ -14,6 +14,7 @@ public class MonthlyBudgetDTO {
     private String month;
     private double monthlyGoal;
     private double moneySpent;
+    private double incomeGenerated;
     private List<SpendingCategoryDTO> spendingCategories;
 
     public MonthlyBudgetDTO(MonthlyBudget monthlyBudget){
@@ -23,6 +24,7 @@ public class MonthlyBudgetDTO {
                 .map(SpendingCategoryDTO::new)
                 .collect(Collectors.toList());
         this.moneySpent = calculateMoneySpent();
+        this.incomeGenerated = 0.0;
     }
 
     public double calculateMoneySpent(){
